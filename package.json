@@ -13,6 +13,7 @@
     "gradlew": "cd ./android && ./gradlew app:assembleDebug && ./gradlew installDebug",
     "aos:clean": "cd android && ./gradlew clean && cd ..",
     "pod": "cd ios && arch -x86_64 pod install --repo-update && cd ..",
+    "postinstall": "husky install",
     "prepare": "husky install"
   },
   "lint-staged": {
