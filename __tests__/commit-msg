@@ -1,0 +1,39 @@
+#!/bin/sh
+#
+# An example hook script to check the commit log message.
+# Called by "git commit" with one argument, the name of the file
+# that has the commit message.  The hook should exit with non-zero
+# status after issuing an appropriate message if it wants to stop the
+# commit.  The hook is allowed to edit the commit message file.
+#
+# To enable this hook, rename this file to "commit-msg".
+
+# Uncomment the below to add a Signed-off-by line to the message.
+# Doing this in a hook is a bad idea in general, but the prepare-commit-msg
+# hook is more suited to it.
+#
+# SOB=$(git var GIT_AUTHOR_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
+# grep -qs "^$SOB" "$1" || echo "$SOB" >> "$1"
+
+# This example catches duplicate Signed-off-by lines.
+
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+message="$(cat $1)"
+requiredPattern="^(FEAT|FIX|DOCS|STYLE|UPDATE|REFACTOR|TEST|CHORE) .*$"
+if ! [[ $message =~ $requiredPattern ]];
+then
+  echo "-"
+  echo "🚨 commit message 똑바로 써라!! 😕"
+  echo "이 commit message 무조건 아래 format 지켜야 해!:"
+  echo "허용된 prefix 단어들은: 'FEAT' 'FIX' 'DOCS' 'STYLE' 'UPDATE' 'REFACTOR' 'TEST' 'CHORE'"
+  echo "예를 들면: FEAT: login button"
+  echo "-"
+  echo "지금 너가 쓴 commit message는:"
+  echo $message
+  echo "-"
+  echo "좀더 많은 정보가 필요하면 Gus에게 문의, check script in .husky/commit-msg"
+  echo "-"
+  exit 1
+fi
