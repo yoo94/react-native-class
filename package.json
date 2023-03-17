@@ -7,7 +7,7 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src --fix",
-    "format": "prettier --check .js,.jsx,.ts,.tsx ./src",
+    "format": "prettier --check ./src",
     "ios:clean": "cd ios && rm -rf Pods && pod cache clean --all && arch -x86_64 pod install && cd ..",
     "gradlew": "cd ./android && ./gradlew app:assembleDebug && ./gradlew installDebug",
     "aos:clean": "cd android && ./gradlew clean && cd ..",
@@ -59,8 +59,5 @@
       "json",
       "node"
     ]
-  },
-  "dependencies": {
-    "lint-staged": "^13.2.0"
   }
 }
