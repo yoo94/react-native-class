@@ -27,5 +27,4 @@ while IFS= read -r -d '' file ; do
   fi
 done < <(git diff -z --staged --name-only --diff-filter=d)
 exit $statusundefined
-undefined
-undefined
+
