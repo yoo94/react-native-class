@@ -24,7 +24,10 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": [
+        "lint-staged",
+        "./husky/pre-commit"
+      ]
     },
     "dependencies": {
       "react": "18.0.0",
