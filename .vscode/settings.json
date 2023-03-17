@@ -1,6 +1,6 @@
 {
   "editor.formatOnSave": true, // 저장 시에 prettier 적용
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true // 저장 시에 eslint 적용
+    "source.fixAll.eslint": true
   }
 }

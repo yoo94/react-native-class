@@ -29,16 +29,6 @@ module.exports = {
   plugins: ['react', 'react-hooks', '@typescript-eslint', 'prettier', 'import'],
   rules: {
     'import/order': ['error', { alphabetize: { order: 'asc', caseInsensitive: true } }],
-    'sort-imports': [
-      'error',
-      {
-        ignoreCase: true, //알파벳순 import
-        ignoreDeclarationSort: false,
-        ignoreMemberSort: false,
-        memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
-        allowSeparatedGroups: false,
-      },
-    ],
     indent: ['error', 2, { SwitchCase: 1 }],
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single', { avoidEscape: true }],
